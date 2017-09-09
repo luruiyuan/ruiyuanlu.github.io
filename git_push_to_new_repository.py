@@ -63,8 +63,8 @@ def git_first_push():
         Do you make sure this is a new repository and you wan to push to git?
 
     """
-    status, input_str = shc.make_choice(txt, default="y")
-    if status is True and input_str in 'Yy':
+    status, in_str = shc.make_choice(txt, default="y")
+    if status is True and in_str in 'Yy':
         set_work_dir(__file__)
         cmds = []
         cmds.append("git init")
@@ -85,7 +85,7 @@ def git_first_push():
         executer.execute("git status")
         # if validate, then execute other commands, else interrupt
         status, in_str = shc.make_choice("If is correct, then press y/Y to continue:", default='n')
-        if status is True and input_str in 'Nn':
+        if status is True and in_str in 'Nn':
             return
         # add, commit, and push
         cmds.append("git add .")
